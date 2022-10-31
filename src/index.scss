@@ -1,4 +1,4 @@
-$background-color: linear-gradient(259.93deg, #000000 -41.68%, #00171f 146.85%);
+$background-color: linear-gradient(259.93deg, #000000 -41.68%, #1d7997 146.85%);
 
 *{
   margin: 0;
@@ -7,11 +7,6 @@ $background-color: linear-gradient(259.93deg, #000000 -41.68%, #00171f 146.85%);
 }
 
 body {
-  max-width: 40%;
-  height: 100vh;
-  display: flex;
-
-
   background: $background-color;
   font-family: 'Poppins', sans-serif;
   color: white;
