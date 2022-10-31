@@ -1,0 +1,23 @@
+$background-color: linear-gradient(259.93deg, #000000 -41.68%, #00171f 146.85%);
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 40%;
+  height: 100vh;
+  display: flex;
+
+
+  background: $background-color;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
