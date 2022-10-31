@@ -21,9 +21,11 @@ const Task = () => {
   return (
     <>
       <div className="task-container">
-        <h1>Minhas Tarefas</h1>
+        <h2>Minhas Tarefas</h2>
+
         <div className="last-tasks">
-          <h2>Últimas Tarefas</h2>
+          <h3>Últimas Tarefas</h3>
+
           <div className="task-list">
             {tasks
               .filter((task) => task.isCompleted === false)
