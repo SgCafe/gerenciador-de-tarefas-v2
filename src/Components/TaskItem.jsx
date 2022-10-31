@@ -1,11 +1,30 @@
 import React from 'react'
+import './TaskItem.scss'
+import { AiFillDelete } from 'react-icons/ai'
 
-const TaskItem = ({ tarefa }) => {
+const TaskItem = ({ task }) => {
   return (
-    <>
-      <h1>{tarefa.description}</h1>
-      <p>{tarefa.isCompleted ? 'Completa' : 'Não completa'}</p>
-    </>
+    <div className="task-item-container">
+      <div>
+        <label
+          className={
+            task.isCompleted
+              ? 'checkbox-container-completed'
+              : 'checkbox-container'
+          }
+        >
+          {task.description}
+          <input type="checkbox" defaultChecked={task.isCompleted} />
+          <span
+            className={task.isCompleted ? 'checkmark completed' : 'checkmark'}
+          ></span>
+        </label>
+      </div>
+
+      <div className="delete">
+        <AiFillDelete size={18} color="F44E4F" />
+      </div>
+    </div>
   )
 }
 
