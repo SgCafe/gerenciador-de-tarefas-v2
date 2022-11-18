@@ -1,4 +1,6 @@
-const CustomInput = (label, value) => {
+import './CustomInput.scss'
+
+const CustomInput = ({ label, value }) => {
   return (
     <div className="custom-input-container">
       <input type="text" className="custom-input" />
@@ -7,7 +9,7 @@ const CustomInput = (label, value) => {
         <label
           className={`${value.length > 0 ? 'shrink' : ''} custom-input-label `}
         >
-          {' '}
+          {label}
         </label>
       ) : null}
     </div>
