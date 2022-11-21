@@ -1,6 +1,10 @@
-import CustomInput from './CustomInput'
-import './AddTask.scss'
 import { useState } from 'react'
+import { BsPlusLg } from 'react-icons/bs'
+
+import CustomInput from './CustomInput'
+import CustomButton from './CustomButton'
+
+import './AddTask.scss'
 
 const AddTask = () => {
   const [task, setTask] = useState('')
@@ -16,6 +20,9 @@ const AddTask = () => {
         value={task}
         onChange={onChange}
       />
+      <CustomButton>
+        <BsPlusLg size={14} color="#ffffff" />
+      </CustomButton>
     </div>
   )
 }
