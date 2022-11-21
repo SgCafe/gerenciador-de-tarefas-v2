@@ -8,7 +8,7 @@ import CustomButton from './CustomButton'
 import './AddTask.scss'
 import axios from 'axios'
 
-const AddTask = () => {
+const AddTask = ({ fetchTasks }) => {
   const [task, setTask] = useState('')
 
   const alert = useAlert()
@@ -29,6 +29,8 @@ const AddTask = () => {
         description: task,
         isCompleted: false,
       })
+
+      await fetchTasks()
     } catch (error) {}
   }
 
