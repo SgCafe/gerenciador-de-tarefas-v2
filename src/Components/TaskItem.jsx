@@ -12,6 +12,10 @@ const TaskItem = ({ task, fetchTasks }) => {
       await axios.delete(
         `https://fsc-task-manager-backend.herokuapp.com/tasks/${task._id}`,
       )
+
+      await fetchTasks()
+
+      alert.success('A tarefa foi deletada com sucesso!')
     } catch (error) {
       alert.error('Algo deu errado.')
     }
