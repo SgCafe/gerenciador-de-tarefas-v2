@@ -21,9 +21,10 @@
         font-size: 18px;
         margin-bottom: 18px;
     }
-
-    .task-list{
-        margin-top: 20px;
+    
+    .tasks-list {
+        overflow-y: scroll;
+        margin-top: 28px;
     }
 }
 
