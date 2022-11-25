@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import { useAlert } from 'react-alert'
 
 import AddTask from './AddTask'
@@ -8,10 +8,9 @@ import TaskItem from './TaskItem'
 import './Task.scss'
 
 const Task = () => {
+  const alert = useAlert()
+
   const [tasks, setTasks] = useState([])
-  useEffect(() => {
-    fetchTasks()
-  }, [])
 
   const fetchTasks = async () => {
     try {
@@ -23,6 +22,19 @@ const Task = () => {
       alert.error('Não foi possível recuperar as tarefas')
     }
   }
+
+  const lastTask = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === false)
+  }, [tasks])
+
+  const completedTask = useMemo(() => {
+    return tasks.filter((task) => task.isCompleted === true)
+  }, [tasks])
+
+  useEffect(() => {
+    fetchTasks()
+  }, [])
+
   return (
     <>
       <div className="tasks-container">
@@ -32,29 +44,25 @@ const Task = () => {
           <h3>Últimas Tarefas</h3>
           <AddTask fetchTasks={fetchTasks} />
           <div className="tasks-list">
-            {tasks
-              .filter((task) => task.isCompleted === false)
-              .map((taskNotCompleted) => (
-                <TaskItem
-                  key={taskNotCompleted._id}
-                  task={taskNotCompleted}
-                  fetchTasks={fetchTasks}
-                />
-              ))}
+            {lastTask.map((taskNotCompleted) => (
+              <TaskItem
+                key={taskNotCompleted._id}
+                task={taskNotCompleted}
+                fetchTasks={fetchTasks}
+              />
+            ))}
           </div>
         </div>
         <div className="completed-tasks">
           <h3>Tarefas Concluídas</h3>
           <div className="tasks-list">
-            {tasks
-              .filter((task) => task.isCompleted === true)
-              .map((taskCompleted) => (
-                <TaskItem
-                  key={taskCompleted._id}
-                  task={taskCompleted}
-                  fetchTasks={fetchTasks}
-                />
-              ))}
+            {completedTask.map((taskCompleted) => (
+              <TaskItem
+                key={taskCompleted._id}
+                task={taskCompleted}
+                fetchTasks={fetchTasks}
+              />
+            ))}
           </div>
         </div>
       </div>
