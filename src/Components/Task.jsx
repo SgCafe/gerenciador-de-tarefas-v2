@@ -6,13 +6,14 @@ import AddTask from './AddTask'
 import TaskItem from './TaskItem'
 
 import './Task.scss'
+import { useCallback } from 'react'
 
 const Task = () => {
   const alert = useAlert()
 
   const [tasks, setTasks] = useState([])
 
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     try {
       const { data } = await axios.get(
         'https://fsc-task-manager-backend.herokuapp.com/tasks',
@@ -21,7 +22,7 @@ const Task = () => {
     } catch (_error) {
       alert.error('Não foi possível recuperar as tarefas')
     }
-  }
+  }, [alert])
 
   const lastTask = useMemo(() => {
     return tasks.filter((task) => task.isCompleted === false)
@@ -33,7 +34,7 @@ const Task = () => {
 
   useEffect(() => {
     fetchTasks()
-  }, [])
+  }, [fetchTasks])
 
   return (
     <>
