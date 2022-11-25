@@ -24,13 +24,13 @@ const Task = () => {
   }
   return (
     <>
-      <div className="task-container">
+      <div className="tasks-container">
         <h2>Minhas Tarefas</h2>
 
         <div className="last-tasks">
           <h3>Últimas Tarefas</h3>
           <AddTask fetchTasks={fetchTasks} />
-          <div className="task-list">
+          <div className="tasks-list">
             {tasks
               .filter((task) => task.isCompleted === false)
               .map((taskNotCompleted) => (
@@ -40,7 +40,7 @@ const Task = () => {
         </div>
         <div className="completed-tasks">
           <h3>Tarefas Concluídas</h3>
-          <div className="task-list">
+          <div className="tasks-list">
             {tasks
               .filter((task) => task.isCompleted === true)
               .map((taskCompleted) => (
