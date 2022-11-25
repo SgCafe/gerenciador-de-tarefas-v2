@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <div className="sidebar-container">
       <div className="logo">
-        <img src="{logo}" alt="Full Stack Club" />
+        <img src={logo} alt="Full Stack Club" />
       </div>
 
       <div className="sign-out">
