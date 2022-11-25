@@ -17,7 +17,7 @@ const TaskItem = ({ task, fetchTasks }) => {
       await fetchTasks()
 
       alert.success('A tarefa foi deletada com sucesso!')
-    } catch (error) {
+    } catch (_error) {
       alert.error('Algo deu errado.')
     }
   }
@@ -34,7 +34,7 @@ const TaskItem = ({ task, fetchTasks }) => {
       await fetchTasks()
 
       alert.success('Sua tarefa foi modificada com sucesso!')
-    } catch (error) {
+    } catch (_error) {
       alert.error('Algo deu errado!')
     }
   }
